@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/png" href="res/img/windmill.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>登录页</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+    <link href="res/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="res/css/material-kit.css" rel="stylesheet"/>
+</head>
+<body class="signup-page">
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-info">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://github.com/powerofcheese">powerofcheese</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navigation-example">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="btn" target="_blank">
+                        注册
+                    </a>
+                </li>
+                <li>
+                    <a href="mall.html" class="btn" target="_blank">
+                        前往商城
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" class="btn btn-simple">
+                        <i class="fa fa-wechat"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" class="btn btn-simple">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" class="btn btn-simple">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="wrapper">
+    <div class="header header-filter"
+         style="background-image: url('res/img/bg_login.jpg'); background-size: cover; background-position: top center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                    <div class="card card-signup">
+                        <form class="form" method="" action="">
+                            <div class="header header-info text-center">
+                                <h4>登录</h4>
+                                <div class="social-line">
+                                    <a href="#" class="btn btn-just-icon">
+                                        <i class="fa fa-wechat"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-just-icon">
+                                        <i class="fa fa-weibo"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-just-icon">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="text-divider">Or Be Classical</p>
+                            <div class="content">
+
+                                <div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">face</i>
+										</span>
+                                    <input type="number" class="form-control" placeholder="电话号码">
+                                </div>
+
+                                <div class="input-group">
+										<span class="input-group-addon">
+											<i class="material-icons">lock_outline</i>
+										</span>
+                                    <input type="password" class="form-control" placeholder="密码">
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="optionsCheckboxes" checked>
+                                        记住密码
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="footer text-center">
+                                <a href="work.html" class="btn btn-info btn-wd btn-lg">进入</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Aurora鞋店
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                About Us
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright pull-right">
+                    &copy; 2016, made <i class="fa fa-pencil-square-o"></i> by <a href="#"
+                                                                                  target="_blank">powerofcheese</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<script src="res/js/jquery.min.js"></script>
+<script src="res/js/bootstrap.min.js"></script>
+<script src="res/js/material.min.js"></script>
+<script src="res/js/material-kit.js"></script>
+<script>
+    $().ready(function () {
+        // the body of this function is in assets/material-kit.js
+        $(window).on('scroll', materialKit.checkScrollForTransparentNavbar);
+    });
+</script>
+
+<script src="res/js/bmob-min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var s = function () {
+        var userName = document.getElementById("admin").value;
+        var passWord = document.getElementById("psw").value;
+        var applicationID = "e48cfb64577915188bf157e0d55816ce";
+        var key = "d8347627a4f3f96b3e2a327ffcbd4f1f";
+        Bmob.initialize(applicationID, key);
+
+        Bmob.User.logIn(userName, passWord, {
+            success: function (user) {
+                window.location.href = 'work.html';
+            },
+            error: function (user, error) {
+                alert("登录失败")
+            }
+        });
+    }</script>
+</body>
+</html>
